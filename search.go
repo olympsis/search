@@ -44,16 +44,16 @@ func (s *Service) SearchUserByUUID(uuid string) (models.UserData, error) {
 
 	// create user data object
 	userData := models.UserData{
-		UUID:        auth.UUID,
+		UUID:        *auth.UUID,
 		Username:    user.UserName,
-		FirstName:   auth.FirstName,
-		LastName:    auth.LastName,
+		FirstName:   *auth.FirstName,
+		LastName:    *auth.LastName,
 		ImageURL:    user.ImageURL,
 		Visibility:  user.Visibility,
 		DeviceToken: user.DeviceToken,
 	}
 
-	// if user visibility is public display this data if not then dont
+	// if user visibility is public display this data if not then don't
 	if user.Visibility == "public" {
 		userData.Bio = user.Bio
 		userData.Clubs = user.Clubs
@@ -89,16 +89,16 @@ func (s *Service) SearchUserByUsername(name string) (models.UserData, error) {
 
 	// create user data object
 	userData := models.UserData{
-		UUID:        auth.UUID,
+		UUID:        *auth.UUID,
 		Username:    user.UserName,
-		FirstName:   auth.FirstName,
-		LastName:    auth.LastName,
+		FirstName:   *auth.FirstName,
+		LastName:    *auth.LastName,
 		ImageURL:    user.ImageURL,
 		Visibility:  user.Visibility,
 		DeviceToken: user.DeviceToken,
 	}
 
-	// if user visibility is public display this data if not then dont
+	// if user visibility is public display this data if not then don't
 	if user.Visibility == "public" {
 		userData.Bio = user.Bio
 		userData.Clubs = user.Clubs
