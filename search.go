@@ -42,13 +42,18 @@ func (s *Service) SearchUserByUUID(uuid string) (models.UserData, error) {
 		return models.UserData{}, err
 	}
 
+	imageURL := ""
+	if user.ImageURL != nil {
+		imageURL = *user.ImageURL
+	}
+
 	// create user data object
 	userData := models.UserData{
 		UUID:         *auth.UUID,
 		Username:     user.UserName,
 		FirstName:    *auth.FirstName,
 		LastName:     *auth.LastName,
-		ImageURL:     user.ImageURL,
+		ImageURL:     imageURL,
 		Visibility:   user.Visibility,
 		DeviceTokens: user.DeviceTokens,
 	}
@@ -87,13 +92,18 @@ func (s *Service) SearchUserByUsername(name string) (models.UserData, error) {
 		return models.UserData{}, err
 	}
 
+	imageURL := ""
+	if user.ImageURL != nil {
+		imageURL = *user.ImageURL
+	}
+
 	// create user data object
 	userData := models.UserData{
 		UUID:         *auth.UUID,
 		Username:     user.UserName,
 		FirstName:    *auth.FirstName,
 		LastName:     *auth.LastName,
-		ImageURL:     user.ImageURL,
+		ImageURL:     imageURL,
 		Visibility:   user.Visibility,
 		DeviceTokens: user.DeviceTokens,
 	}
