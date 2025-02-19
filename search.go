@@ -49,13 +49,14 @@ func (s *Service) SearchUserByUUID(uuid string) (models.UserData, error) {
 
 	// create user data object
 	userData := models.UserData{
-		UUID:         *auth.UUID,
-		Username:     user.UserName,
-		FirstName:    *auth.FirstName,
-		LastName:     *auth.LastName,
-		ImageURL:     imageURL,
-		Visibility:   user.Visibility,
-		DeviceTokens: user.DeviceTokens,
+		UUID:                   *auth.UUID,
+		Username:               user.UserName,
+		FirstName:              *auth.FirstName,
+		LastName:               *auth.LastName,
+		ImageURL:               imageURL,
+		Visibility:             user.Visibility,
+		NotificationDevices:    user.NotificationDevices,
+		NotificationPreference: user.NotificationPreference,
 	}
 
 	// if user visibility is public display this data if not then don't
@@ -99,13 +100,14 @@ func (s *Service) SearchUserByUsername(name string) (models.UserData, error) {
 
 	// create user data object
 	userData := models.UserData{
-		UUID:         *auth.UUID,
-		Username:     user.UserName,
-		FirstName:    *auth.FirstName,
-		LastName:     *auth.LastName,
-		ImageURL:     imageURL,
-		Visibility:   user.Visibility,
-		DeviceTokens: user.DeviceTokens,
+		UUID:                   *auth.UUID,
+		Username:               user.UserName,
+		FirstName:              *auth.FirstName,
+		LastName:               *auth.LastName,
+		ImageURL:               imageURL,
+		Visibility:             user.Visibility,
+		NotificationDevices:    user.NotificationDevices,
+		NotificationPreference: user.NotificationPreference,
 	}
 
 	// if user visibility is public display this data if not then don't
